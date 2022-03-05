@@ -18,7 +18,7 @@
 (defvar im-cursor-color "Orange"
   "The color for input method.")
 
-(defvar im-default-cursor-color (frame-parameter nil 'cursor-color)
+(defvar im-default-cursor-color (foreground-color-at-point)
   "The default cursor color.")
 
 (defun im--chinese-p ()
