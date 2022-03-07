@@ -18,8 +18,12 @@
 (defvar im-cursor-color "Orange"
   "The color for input method.")
 
-(defvar im-default-cursor-color (foreground-color-at-point)
-  "The default cursor color.")
+;; (defvar im-default-cursor-color (foreground-color-at-point)
+;;   "The default cursor color.")
+
+(defun im-default-cursor-color ()
+  "The default cursor color."
+  (foreground-color-at-point))
 
 (defun im--chinese-p ()
   "Check if the current input state is Chinese."
@@ -34,8 +38,8 @@
   (interactive)
   (set-cursor-color (if (im--chinese-p)
                         im-cursor-color
-                      im-default-cursor-color)))
-
+                      (im-default-cursor-color))))
+;;;###autoload
 (define-minor-mode cursor-chg-mode
   "Toggle changing cursor color.
 With numeric ARG, turn cursor changing on if ARG is positive.
