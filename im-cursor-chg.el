@@ -32,10 +32,10 @@
 (defun im-change-cursor-color ()
   "Set cursor color depending on input method."
   (interactive)
-  (if (not (derived-mode-p 'pdf-view-mode))
-      (set-cursor-color (if (im--chinese-p)
-                            im-cursor-color
-			  (im-default-cursor-color)))))
+  (set-cursor-color (if (im--chinese-p)
+                        im-cursor-color
+                      im-default-cursor-color)))
+
 ;;;###autoload
 (define-minor-mode cursor-chg-mode
   "Toggle changing cursor color.
